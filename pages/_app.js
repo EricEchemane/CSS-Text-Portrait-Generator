@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
     palette: {
       mode: theme,
       primary: {
-        main: '#cc00ff',
+        main: '#ad03fc',
       },
       secondary: {
         main: '#ff005d',

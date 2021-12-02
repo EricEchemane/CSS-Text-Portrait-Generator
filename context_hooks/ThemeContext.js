@@ -8,7 +8,7 @@ function persistInStorage(theme) {
 
 export default function useThemeContext() {
 
-    const [theme, setTheme] = useState('dark');
+    const [theme, setTheme] = useState('light');
 
     useEffect(() => {
         const themeHasBeenSet = localStorage.getItem('ees-cpg-theme');
