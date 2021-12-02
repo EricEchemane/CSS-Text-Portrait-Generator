@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import { useContext } from 'react';
 import { ThemeContext } from '../context_hooks/ThemeContext';
 
+import Navbar from '../comps/Navbar';
+
 export default function Home() {
 
   const { theme, setTheme } = useContext(ThemeContext);
@@ -12,8 +14,8 @@ export default function Home() {
   }
 
   return (
-    <Box py={2} className='cont'>
-      <Button variant='contained' onClick={toggleTheme}> Toggle Theme </Button>
+    <Box id='main-cont'>
+      <Navbar />
     </Box>
   );
 }

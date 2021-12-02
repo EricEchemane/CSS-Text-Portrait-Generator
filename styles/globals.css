@@ -1,5 +1,8 @@
-.cont {
+#main-cont {
     max-width: 1080px;
-    margin-left: auto;
-    margin-right: auto;
+    height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr min-content;
 }

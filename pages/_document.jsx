@@ -10,7 +10,7 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <title> Text Portrait Generator by Eric Echemane </title>
+                    <title> CSS Text Portrait Generator by Eric Echemane </title>
                     <meta name='keywords' content='css, portrait, css portrait, css image portrait, css text portrait image download, eric echemane' />
                     <link rel="author" href="https://github.com/EricEchemane/CSS-Text-Portrait-Generator" />
                     <script src='https://cdn.jsdelivr.net/npm/html2canvas@1.3.3/dist/html2canvas.min.js'></script>
