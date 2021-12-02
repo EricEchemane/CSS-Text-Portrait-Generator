@@ -1,7 +1,6 @@
 
 /* MAT */
 import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -35,10 +34,10 @@ export default function Navbar() {
     }
 
     return <>
-        <Paper sx={{ p: 2, marginTop: '.5rem' }}>
+        <Paper sx={{ p: '.75rem' }}>
             <Box display='flex' >
                 <Link href='/' passHref>
-                    <Button sx={{ fontWeight: '600' }}> CTPG </Button>
+                    <Button sx={{ fontWeight: '600' }}> CTP Generator </Button>
                 </Link>
 
                 <Box flex='1 1 auto'></Box>
