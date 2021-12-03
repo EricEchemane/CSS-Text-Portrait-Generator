@@ -7,14 +7,17 @@ import TextSnippetOutlinedIcon from '@mui/icons-material/TextSnippetOutlined';
 import BrokenImageOutlinedIcon from '@mui/icons-material/BrokenImageOutlined';
 import FontDownloadOutlinedIcon from '@mui/icons-material/FontDownloadOutlined';
 
+import EqualizerOutlinedIcon from '@mui/icons-material/EqualizerOutlined';
+
 export default function Toolbar({ chooseImage }) {
 
     return <>
         <Paper sx={{ overflowY: 'hidden', overflowX: 'auto' }} id='toolbar'>
             <Box
                 display='flex'
+                justifyContent='center'
                 gap='1rem'
-                sx={{ p: 1, overflowY: 'hidden', overflowX: 'auto', width: '2000px' }}>
+                sx={{ p: 1, overflowY: 'hidden', overflowX: 'auto' }}>
 
                 <Button
                     onClick={chooseImage}
@@ -25,20 +28,14 @@ export default function Toolbar({ chooseImage }) {
 
                 <Button
                     sx={{ display: 'grid', placeItems: 'center', textTransform: 'none', gap: '.25rem' }}
-                    startIcon={<FilterNoneOutlinedIcon sx={{ m: 0, p: 0, transform: 'translateX(.3rem)' }} />}>
-                    Filters
+                    startIcon={<EqualizerOutlinedIcon sx={{ m: 0, p: 0, transform: 'translateX(.3rem)' }} />}>
+                    Adjustments
                 </Button>
 
                 <Button
                     sx={{ display: 'grid', placeItems: 'center', textTransform: 'none', gap: '.25rem' }}
                     startIcon={<TextSnippetOutlinedIcon sx={{ m: 0, p: 0, transform: 'translateX(.3rem)' }} />}>
                     Change Lyrics
-                </Button>
-
-                <Button
-                    sx={{ display: 'grid', placeItems: 'center', textTransform: 'none', gap: '.25rem' }}
-                    startIcon={<FontDownloadOutlinedIcon sx={{ m: 0, p: 0, transform: 'translateX(.3rem)' }} />}>
-                    Edit Text
                 </Button>
             </Box>
         </Paper>

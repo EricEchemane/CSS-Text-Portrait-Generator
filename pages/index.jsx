@@ -43,10 +43,10 @@ export default function Home() {
       <link rel="author" href="https://github.com/EricEchemane/CSS-Text-Portrait-Generator" />
     </Head>
 
-    <Box id='main-cont' p={1}>
+    <Box id='main-cont' p={1} pb={2}>
       <Navbar />
 
-      <Box my={1} p={mobileDevice ? 2 : 4} sx={{ backdropFilter: 'invert(5%)', borderRadius: '.3rem' }} >
+      <Box my={1} p={mobileDevice ? 1 : 4} sx={{ backdropFilter: 'invert(5%)', borderRadius: '.3rem' }} >
 
         <Paper
           elevation={0}
