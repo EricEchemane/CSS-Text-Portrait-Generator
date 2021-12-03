@@ -9,12 +9,14 @@ export default function usePortraitContext() {
     const [lyrics, setLyrics] = useState(default_lyric);
     const [fontSize, setFontSize] = useState(.6);
     const [brightness, setBrightness] = useState(1.5);
+    const [bgSize, setBgSize] = useState(100);
 
     return {
         PortraitContext,
         image, setImage,
         lyrics, setLyrics,
         fontSize, setFontSize,
-        brightness, setBrightness
+        brightness, setBrightness,
+        bgSize, setBgSize
     };
 }

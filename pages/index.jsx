@@ -23,7 +23,8 @@ export default function Home() {
     image, setImage,
     lyrics, setLyrics,
     fontSize, setFontSize,
-    brightness, setBrightness
+    brightness, setBrightness,
+    bgSize, setBgSize
   } = useContext(PortraitContext);
 
   const [lyricInputShown, setLyricInputShown] = useState(false);
@@ -42,6 +43,10 @@ export default function Home() {
 
   function handleBrightnessChange(e) {
     setBrightness(e.target.value);
+  }
+
+  function handleBgSizeChange(e) {
+    setBgSize(e.target.value);
   }
 
   function inputImage() {
@@ -106,9 +111,15 @@ export default function Home() {
                 <Typography variant='caption'>Brightness</Typography>
                 <Slider marks min={1} step={.2} max={2.5} value={brightness} onChange={handleBrightnessChange} valueLabelDisplay="auto" />
               </Box>
+
               <Box display='grid' gridTemplateColumns='1fr 3fr' alignItems='center' gap='.5rem'>
                 <Typography variant='caption'>Font size</Typography>
                 <Slider marks min={.2} step={.1} max={1} value={fontSize} onChange={handleFontSizeChange} valueLabelDisplay="auto" />
+              </Box>
+
+              <Box display='grid' gridTemplateColumns='1fr 3fr' alignItems='center' gap='.5rem'>
+                <Typography variant='caption'> Image size</Typography>
+                <Slider min={90} step={1} max={300} value={bgSize} onChange={handleBgSizeChange} valueLabelDisplay="auto" />
               </Box>
 
               <Button fullWidth variant='contained' onClick={() => setAdjustmentShown(false)}> Done </Button>
@@ -122,7 +133,8 @@ export default function Home() {
             style={{
               backgroundImage: image != null ? `url("${image}")` : '',
               fontSize: `${fontSize}rem`,
-              filter: `brightness(${brightness})`
+              filter: `brightness(${brightness})`,
+              backgroundSize: `auto ${bgSize}%`
             }}
             id='text'>
             {

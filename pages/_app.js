@@ -13,7 +13,8 @@ function MyApp({ Component, pageProps }) {
     image, setImage,
     lyrics, setLyrics,
     fontSize, setFontSize,
-    brightness, setBrightness
+    brightness, setBrightness,
+    bgSize, setBgSize
   } = usePortraitContext();
 
   /* cpg = css portrait generator */
@@ -47,7 +48,8 @@ function MyApp({ Component, pageProps }) {
           image, setImage,
           lyrics, setLyrics,
           fontSize, setFontSize,
-          brightness, setBrightness
+          brightness, setBrightness,
+          bgSize, setBgSize
         }}>
 
           <CssBaseline />
