@@ -8,6 +8,8 @@ import { Paper } from '@mui/material';
 import React, { useContext, useRef, useState } from 'react';
 import { PortraitContext } from '../context_hooks/PortraitContext';
 
+import Head from 'next/head';
+
 export default function Home() {
 
   const mobileDevice = useMediaQuery("(max-width: 600px)");
@@ -21,14 +23,26 @@ export default function Home() {
     imgInputRef.current.click();
   }
 
+  function captureImage() {
+
+  }
+
   function inputImage() {
     const input = document.getElementById('image-input');
     const img = input.files[0];
-    const src = URL.createObjectURL(img);
-    setImage(src);
+    if (img) {
+      const src = URL.createObjectURL(img);
+      setImage(src);
+    }
   }
 
-  return (
+  return <>
+    <Head>
+      <title> CSS Text Portrait Generator by Eric Echemane </title>
+      <meta name='keywords' content='css, portrait, css portrait, css image portrait, css text portrait image download, eric echemane' />
+      <link rel="author" href="https://github.com/EricEchemane/CSS-Text-Portrait-Generator" />
+    </Head>
+
     <Box id='main-cont' p={1}>
       <Navbar />
 
@@ -41,7 +55,7 @@ export default function Home() {
 
           <input onChange={inputImage} type="file" accept='image/*' id='image-input' ref={imgInputRef} hidden />
 
-          {image == null && <Button onClick={chooseImage} type='submit' variant='contained' sx={{ zIndex: 2 }}> Choose Image </Button>}
+          {image == null && <Button color='secondary' onClick={chooseImage} type='submit' variant='contained' sx={{ zIndex: 2 }}> Choose Image </Button>}
 
           <p
             style={{
@@ -60,5 +74,5 @@ export default function Home() {
 
       <Toolbar chooseImage={chooseImage} />
     </Box>
-  );
+  </>;
 }
