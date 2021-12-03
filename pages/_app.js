@@ -3,10 +3,12 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import useThemeContext from '../context_hooks/ThemeContext';
+import usePortraitContext from '../context_hooks/PortraitContext';
 
 function MyApp({ Component, pageProps }) {
 
   const { theme, setTheme, ThemeContext } = useThemeContext();
+  const { state, setState, PortraitContext } = usePortraitContext();
 
   /* cpg = css portrait generator */
   const cpgTheme = createTheme({
@@ -35,8 +37,12 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={cpgTheme}>
 
       <ThemeContext.Provider value={{ theme, setTheme }}>
-        <CssBaseline />
-        <Component {...pageProps} />
+        <PortraitContext.Provider value={{ state, setState }}>
+
+          <CssBaseline />
+          <Component {...pageProps} />
+
+        </PortraitContext.Provider>
       </ThemeContext.Provider>
 
     </ThemeProvider>

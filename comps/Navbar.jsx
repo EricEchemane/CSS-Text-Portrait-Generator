@@ -55,7 +55,7 @@ export default function Navbar() {
                             </StyledIconButton>
                         </Tooltip>
                     </a>
-                    {
+                    {/* {
                         theme === 'dark'
                             ?
                             <Tooltip title='Light mode'>
@@ -69,7 +69,7 @@ export default function Navbar() {
                                     <DarkModeOutlinedIcon />
                                 </StyledIconButton>
                             </Tooltip>
-                    }
+                    } */}
                 </Box>
             </Box>
         </Paper>

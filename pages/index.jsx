@@ -5,29 +5,60 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Navbar from '../comps/Navbar';
 import Toolbar from '../comps/Toolbar';
 import { Paper } from '@mui/material';
+import React, { useContext, useRef, useState } from 'react';
+import { PortraitContext } from '../context_hooks/PortraitContext';
 
 export default function Home() {
 
   const mobileDevice = useMediaQuery("(max-width: 600px)");
 
+  const { state, setState } = useContext(PortraitContext);
+  const [image, setImage] = useState(null);
+
+  const imgInputRef = useRef();
+
+  function chooseImage() {
+    imgInputRef.current.click();
+  }
+
+  function inputImage() {
+    const input = document.getElementById('image-input');
+    const img = input.files[0];
+    const src = URL.createObjectURL(img);
+    setImage(src);
+  }
+
   return (
     <Box id='main-cont' p={1}>
       <Navbar />
 
-      <Box my={1} p={mobileDevice ? 2 : 8} sx={{ backdropFilter: 'invert(5%)', borderRadius: '.3rem' }} >
+      <Box my={1} p={mobileDevice ? 2 : 4} sx={{ backdropFilter: 'invert(5%)', borderRadius: '.3rem' }} >
 
         <Paper
-          sx={{ borderRadius: '.5rem' }}
-          elevation={2}
+          elevation={0}
           id='image-container'
           area-label='Image portrait container'>
 
-          <Button color='secondary' sx={{ color: 'text.secondary' }}> Tap to upload image </Button>
+          <input onChange={inputImage} type="file" accept='image/*' id='image-input' ref={imgInputRef} hidden />
+
+          {image == null && <Button onClick={chooseImage} type='submit' variant='contained' sx={{ zIndex: 2 }}> Choose Image </Button>}
+
+          <p
+            style={{
+              backgroundImage: image != null ? `url("${image}")` : ''
+            }}
+            id='text'>
+            {
+              [...Array(100)].map((n, index) => (
+                <React.Fragment key={index}> {state.lyrics.text} </React.Fragment>
+              ))
+            }
+          </p>
         </Paper>
 
       </Box>
 
-      <Toolbar />
+      <Toolbar chooseImage={chooseImage} />
     </Box>
   );
 }

@@ -9,11 +9,15 @@
     - hue rotate
     - saturation
 
-- Edit Text
+- Lyrics
     - Change lyrics
     - Adjust Fontsize
     - Change font family
     - change font style
+
+- Image
+    - fit
+    - 100%
 
 - Change Lyrics
 - Download Image
