@@ -98,11 +98,11 @@ export default function Home() {
             container={containerRef.current}
             sx={{ backdropFilter: 'blur(25px)', zIndex: 10, width: '300px' }}>
 
-            <Box display='flex' flexDirection='column' gap='1rem'>
+            <Box display='flex' flexDirection='column' gap='1rem' p={2}>
 
               <Box display='grid' gridTemplateColumns='1fr 3fr' alignItems='center' gap='.5rem'>
                 <Typography variant='caption'>Brightness</Typography>
-                <Slider min={1} step={.1} max={2} value={brightness} onChange={handleBrightnessChange} valueLabelDisplay="auto" />
+                <Slider min={1} step={.1} max={3} value={brightness} onChange={handleBrightnessChange} valueLabelDisplay="auto" />
               </Box>
               <Box display='grid' gridTemplateColumns='1fr 3fr' alignItems='center' gap='.5rem'>
                 <Typography variant='caption'>Font size</Typography>
