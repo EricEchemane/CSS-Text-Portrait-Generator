@@ -108,12 +108,12 @@ export default function Home() {
 
               <Box display='grid' gridTemplateColumns='1fr 3fr' alignItems='center' gap='.5rem'>
                 <Typography variant='caption'>Brightness</Typography>
-                <Slider min={1} step={.01} max={2.5} value={brightness} onChange={handleBrightnessChange} valueLabelDisplay="auto" />
+                <Slider marks min={1} step={.2} max={2.5} value={brightness} onChange={handleBrightnessChange} valueLabelDisplay="auto" />
               </Box>
 
               <Box display='grid' gridTemplateColumns='1fr 3fr' alignItems='center' gap='.5rem'>
                 <Typography variant='caption'>Font size</Typography>
-                <Slider min={.2} step={.01} max={1} value={fontSize} onChange={handleFontSizeChange} valueLabelDisplay="auto" />
+                <Slider marks min={.2} step={.1} max={1} value={fontSize} onChange={handleFontSizeChange} valueLabelDisplay="auto" />
               </Box>
 
               <Box display='grid' gridTemplateColumns='1fr 3fr' alignItems='center' gap='.5rem'>
