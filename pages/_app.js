@@ -8,7 +8,13 @@ import usePortraitContext from '../context_hooks/PortraitContext';
 function MyApp({ Component, pageProps }) {
 
   const { theme, setTheme, ThemeContext } = useThemeContext();
-  const { state, setState, PortraitContext } = usePortraitContext();
+  const {
+    PortraitContext,
+    image, setImage,
+    lyrics, setLyrics,
+    fontSize, setFontSize,
+    brightness, setBrightness
+  } = usePortraitContext();
 
   /* cpg = css portrait generator */
   const cpgTheme = createTheme({
@@ -37,7 +43,12 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={cpgTheme}>
 
       <ThemeContext.Provider value={{ theme, setTheme }}>
-        <PortraitContext.Provider value={{ state, setState }}>
+        <PortraitContext.Provider value={{
+          image, setImage,
+          lyrics, setLyrics,
+          fontSize, setFontSize,
+          brightness, setBrightness
+        }}>
 
           <CssBaseline />
           <Component {...pageProps} />

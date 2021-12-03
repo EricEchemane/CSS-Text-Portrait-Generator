@@ -44,7 +44,6 @@
     /* background-image: url("/lisa.png"); */
     background-size: auto 100%; /* fit to screen */
     /* background-size: 100% 100%; */  /* 100% */
-    font-size: .5rem;
 }
 
 #toolbar::-webkit-scrollbar {
@@ -57,4 +56,9 @@
 
 #toolbar::-webkit-scrollbar-track {
     background: #333; 
+}
+
+#choose-img-btn {
+    position: absolute;
+    z-index: 1;
 }

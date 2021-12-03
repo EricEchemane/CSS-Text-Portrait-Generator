@@ -1,6 +1,11 @@
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Slide from '@mui/material/Slide';
+import TextField from '@mui/material/TextField';
+import Slider from '@mui/material/Slider';
+import Typography from '@mui/material/Typography';
+
 
 import Navbar from '../comps/Navbar';
 import Toolbar from '../comps/Toolbar';
@@ -14,17 +19,29 @@ export default function Home() {
 
   const mobileDevice = useMediaQuery("(max-width: 600px)");
 
-  const { state, setState } = useContext(PortraitContext);
-  const [image, setImage] = useState(null);
+  const {
+    image, setImage,
+    lyrics, setLyrics,
+    fontSize, setFontSize,
+    brightness, setBrightness
+  } = useContext(PortraitContext);
+
+  const [lyricInputShown, setLyricInputShown] = useState(false);
+  const [adjustmentShown, setAdjustmentShown] = useState(false);
 
   const imgInputRef = useRef();
+  const containerRef = useRef();
 
   function chooseImage() {
     imgInputRef.current.click();
   }
 
-  function captureImage() {
+  function handleFontSizeChange(e) {
+    setFontSize(e.target.value);
+  }
 
+  function handleBrightnessChange(e) {
+    setBrightness(e.target.value);
   }
 
   function inputImage() {
@@ -34,6 +51,10 @@ export default function Home() {
       const src = URL.createObjectURL(img);
       setImage(src);
     }
+  }
+
+  function handleLyricsChange(e) {
+    setLyrics(e.target.value);
   }
 
   return <>
@@ -53,18 +74,58 @@ export default function Home() {
           id='image-container'
           area-label='Image portrait container'>
 
-          <input onChange={inputImage} type="file" accept='image/*' id='image-input' ref={imgInputRef} hidden />
+          <Slide
+            direction="up"
+            in={lyricInputShown}
+            container={containerRef.current}
+            sx={{ backdropFilter: 'blur(25px)', zIndex: 10, width: '300px' }}>
+            <Box display='flex' flexDirection='column' gap='1rem'>
+              <TextField
+                id="filled-multiline-static"
+                label="Paste your lyrics here"
+                multiline
+                rows={10}
+                variant="filled"
+                onChange={handleLyricsChange}
+              />
+              <Button fullWidth variant='contained' onClick={() => setLyricInputShown(false)}> Done </Button>
+            </Box>
+          </Slide>
 
-          {image == null && <Button color='secondary' onClick={chooseImage} type='submit' variant='contained' sx={{ zIndex: 2 }}> Choose Image </Button>}
+          <Slide
+            direction="up"
+            in={adjustmentShown}
+            container={containerRef.current}
+            sx={{ backdropFilter: 'blur(25px)', zIndex: 10, width: '300px' }}>
+
+            <Box display='flex' flexDirection='column' gap='1rem'>
+
+              <Box display='grid' gridTemplateColumns='1fr 3fr' alignItems='center' gap='.5rem'>
+                <Typography variant='caption'>Brightness</Typography>
+                <Slider min={1} step={.1} max={2} value={brightness} onChange={handleBrightnessChange} valueLabelDisplay="auto" />
+              </Box>
+              <Box display='grid' gridTemplateColumns='1fr 3fr' alignItems='center' gap='.5rem'>
+                <Typography variant='caption'>Font size</Typography>
+                <Slider min={.2} step={.1} max={1} value={fontSize} onChange={handleFontSizeChange} valueLabelDisplay="auto" />
+              </Box>
+
+              <Button fullWidth variant='contained' onClick={() => setAdjustmentShown(false)}> Done </Button>
+            </Box>
+          </Slide>
+
+          <input onChange={inputImage} type="file" accept='image/*' id='image-input' ref={imgInputRef} hidden />
+          {image == null && <Button color='secondary' onClick={chooseImage} id='choose-img-btn' variant='contained' sx={{ zIndex: 2 }}> Choose Image </Button>}
 
           <p
             style={{
-              backgroundImage: image != null ? `url("${image}")` : ''
+              backgroundImage: image != null ? `url("${image}")` : '',
+              fontSize: `${fontSize}rem`,
+              filter: `brightness(${brightness})`
             }}
             id='text'>
             {
-              [...Array(100)].map((n, index) => (
-                <React.Fragment key={index}> {state.lyrics.text} </React.Fragment>
+              [...Array(200)].map((n, index) => (
+                <React.Fragment key={index}> {lyrics} </React.Fragment>
               ))
             }
           </p>
@@ -72,7 +133,7 @@ export default function Home() {
 
       </Box>
 
-      <Toolbar chooseImage={chooseImage} />
+      <Toolbar chooseImage={chooseImage} openLyricEditor={setLyricInputShown} openAdjustment={setAdjustmentShown} />
     </Box>
   </>;
 }
