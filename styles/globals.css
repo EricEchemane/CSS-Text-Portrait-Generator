@@ -40,6 +40,7 @@
     -webkit-text-fill-color: transparent;
     background-position: top center;
     -webkit-font-smoothing: antialiased;
+    filter: grayscale(100%);
 
     /* background-image: url("/lisa.png"); */
     /* background-size: auto 100%; fit to screen */
