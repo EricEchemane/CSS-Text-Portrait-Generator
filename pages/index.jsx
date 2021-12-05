@@ -19,11 +19,12 @@ export default function Home() {
   const mobileDevice = useMediaQuery("(max-width: 600px)");
 
   const {
-    image, setImage,
-    lyrics, setLyrics,
-    fontSize, setFontSize,
-    brightness, setBrightness,
-    bgSize, setBgSize
+    image, lyrics, fontSize, brightness, bgSize,
+    handleBgSizeChange,
+    handleLyricsChange,
+    handleBrightnessChange,
+    handleFontSizeChange,
+    inputImage
   } = useContext(PortraitContext);
 
   const [lyricInputShown, setLyricInputShown] = useState(false);
@@ -34,31 +35,6 @@ export default function Home() {
 
   function chooseImage() {
     imgInputRef.current.click();
-  }
-
-  function handleFontSizeChange(e) {
-    setFontSize(e.target.value);
-  }
-
-  function handleBrightnessChange(e) {
-    setBrightness(e.target.value);
-  }
-
-  function handleBgSizeChange(e) {
-    setBgSize(e.target.value);
-  }
-
-  function inputImage() {
-    const input = document.getElementById('image-input');
-    const img = input.files[0];
-    if (img) {
-      const src = URL.createObjectURL(img);
-      setImage(src);
-    }
-  }
-
-  function handleLyricsChange(e) {
-    setLyrics(e.target.value);
   }
 
   return <>

@@ -9,12 +9,12 @@ function MyApp({ Component, pageProps }) {
 
   const { theme, setTheme, ThemeContext } = useThemeContext();
   const {
-    PortraitContext,
-    image, setImage,
-    lyrics, setLyrics,
-    fontSize, setFontSize,
-    brightness, setBrightness,
-    bgSize, setBgSize
+    PortraitContext, image, lyrics, fontSize, brightness, bgSize,
+    handleBgSizeChange,
+    handleLyricsChange,
+    handleBrightnessChange,
+    handleFontSizeChange,
+    inputImage
   } = usePortraitContext();
 
   /* cpg = css portrait generator */
@@ -45,11 +45,12 @@ function MyApp({ Component, pageProps }) {
 
       <ThemeContext.Provider value={{ theme, setTheme }}>
         <PortraitContext.Provider value={{
-          image, setImage,
-          lyrics, setLyrics,
-          fontSize, setFontSize,
-          brightness, setBrightness,
-          bgSize, setBgSize
+          image, lyrics, fontSize, brightness, bgSize,
+          handleBgSizeChange,
+          handleLyricsChange,
+          handleBrightnessChange,
+          handleFontSizeChange,
+          inputImage
         }}>
 
           <CssBaseline />
