@@ -42,7 +42,7 @@ export default function Home() {
       <title> EEs Css Portrait Generator </title>
       <meta name='keywords' content='css portrait, css portrait, css image portrait, css text portrait image download, eric echemane' />
       <meta name='description' content='CSS Text Portrait Generator.' />
-      <meta name="google-site-verification" content="iBCiF7ul-5RXZg2Hqnbe4agPetrXSU4FvfdnPBuSo80" />
+      <meta name="google-site-verification" content="cv75ZHNz7htkEl7Jtz5cwdGNEjj55mOtrjIdG6DGBPo" />
       <link rel="author" href="https://github.com/EricEchemane/CSS-Text-Portrait-Generator" />
     </Head>
 
