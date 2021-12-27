@@ -39,9 +39,9 @@ export default function Home() {
 
   return <>
     <Head>
-      <title> CSS Text Portrait Generator by Eric Echemane </title>
-      <meta name='keywords' content='css, portrait, css portrait, css image portrait, css text portrait image download, eric echemane' />
-      <meta name='description' content='Choose image, Adjust parameters then Screenshot' />
+      <title> EEs Css Portrait Generator </title>
+      <meta name='keywords' content='css portrait, css portrait, css image portrait, css text portrait image download, eric echemane' />
+      <meta name='description' content='CSS Text Portrait Generator.' />
       <meta name="google-site-verification" content="iBCiF7ul-5RXZg2Hqnbe4agPetrXSU4FvfdnPBuSo80" />
       <link rel="author" href="https://github.com/EricEchemane/CSS-Text-Portrait-Generator" />
     </Head>
