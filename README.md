@@ -1,23 +1,10 @@
-# CSS Portrait Generator
+# CSS Text Portrait Generator
 
-## Functionalities
+[![EEs CSS Text Portrait Generator](./public/banner.png)](https://ees-portrait.netlify.app)
 
-- Filters
-    - Black and White filter
-    - Brightness
-    - invert
-    - hue rotate
-    - saturation
-
-- Lyrics
-    - Change lyrics
-    - Adjust Fontsize
-    - Change font family
-    - change font style
-
-- Image
-    - fit
-    - 100%
-
-- Change Lyrics
-- Download Image
+## Features
+- Adjust font-size
+- Adjust brightness
+- Adjust image size
+- Change lyrics
+- Change image
